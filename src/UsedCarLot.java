@@ -25,4 +25,25 @@ public class UsedCarLot {
         inventory.set(i2,temp);
         return true;
     }
+
+    public void addCar(int indexToAdd, Car carToAdd) {
+        inventory.add(indexToAdd, carToAdd);
+    }
+
+    public Car sellCarShift(int indexOfCarToSell) {
+        Car removed = inventory.remove(indexOfCarToSell);
+        return removed;
+    }
+
+    public Car sellCarNoShift(int indexOfCarToSell) {
+        Car removed = inventory.get(indexOfCarToSell);
+        inventory.set(indexOfCarToSell,null);
+        return removed;
+    }
+
+    public void moveCar(int indexOfCarToMove, int destinationIndex) {
+        Car temp = inventory.remove(indexOfCarToMove);
+
+        inventory.add(destinationIndex,temp);
+    }
 }
